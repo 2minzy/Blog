@@ -111,6 +111,14 @@
         <li><button type="submit">정보 수정</button></li>
       </form>
 
+      <h5 style="border-bottom:2px solid #111111;">{{account.user.username}}님의 좋아요 목록</h5>
+      {% for post in account.like_post.all %}
+      <div style="border-bottom:2px solid #111111;">
+        <li>{{post.title}}</li>
+        <li>{{post.pub_date}}</li>
+        <li>{{post.content}}</li>
+      </div>
+      {% endfor %}
     </ul>
   </section>
 </body>

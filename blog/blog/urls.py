@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from main.views import home, post, detail, update_post, delete_post, update_post
+from main.views import home, post, detail, update_post, delete_post, update_post, post_like
 from login.views import signup, login, logout, modify_user
 
 urlpatterns = [
@@ -29,4 +29,5 @@ urlpatterns = [
     path('login/', login,name='login'),
     path('logout/',logout,name='logout'),
     # path('modify/',modify_user,name='modify'),
+    path('like/<int:post_id>', post_like,name='like'),
 ]

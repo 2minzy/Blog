@@ -26,7 +26,9 @@ def post(request):
 
 def detail(request, post_id):
   post = get_object_or_404(Post,pk = post_id)
-  context = {'post' : post}
+  user = request.user
+  account = Account.objects.get(user=user)
+  context = {'post': post, 'account': account}
   return render(request,'detail.html', context)
 
 def update_post(request, post_id):
@@ -47,6 +49,28 @@ def delete_post(request, post_id):
   post_delete = Post.objects.get(id=post_id)
   post_delete.delete()
   return redirect('home')
+
+def post_like(request, post_id):
+  post = get_object_or_404(Post, id = post_id)
+  account = Account.objects.get(user=request.user)
+
+  check_like_post = account.like_post.filter(id=post_id)
+
+  if check_like_post.exists():
+    account,like_post.remove(post)
+    if post.like_num == 0:
+      pass
+    else:
+      post.like_num -= 1
+      post.save()
+  else:
+      account.like_post.add(post)
+      post.like_num += 1
+      post.save()
+
+  return redirect('detail', post_id)
+
+
 
 
 
