@@ -57,7 +57,7 @@ def post_like(request, post_id):
   check_like_post = account.like_post.filter(id=post_id)
 
   if check_like_post.exists():
-    account,like_post.remove(post)
+    account.like_post.remove(post)
     if post.like_num == 0:
       pass
     else:

@@ -18,7 +18,7 @@
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
   </script>
 
-  <title>로그인</title>
+  <title>Sign-in</title>
   <style>
     .login {
       width: 410px;
@@ -91,12 +91,12 @@
 
 <body>
   <section class="login">
-    <h2>로그인</h2>
+    <h2>Sign-in</h2>
     <ul>
       <form method="POST" action="{% url 'login' %}">
         {% csrf_token %}
-        <li><input type="text" placeholder="아이디" name="id"></li>
-        <li><input type="password" placeholder="비밀번호" name="password"></li>
+        <li><input type="text" placeholder="Id" name="id"></li>
+        <li><input type="password" placeholder="Password" name="password"></li>
         <div style=" margin: 0 0 0 30px; color: red;" class="messages">
           {% if messages %}
           {% for message in messages %}
@@ -104,12 +104,12 @@
           {% endfor %}
           {% endif %}
         </div>
-        <li><button type="submit">로그인</button></li>
+        <li><button type="submit">Sign-in</button></li>
       </form>
     </ul>
     <div>
       <ul>
-        <li><a href="{% url 'signup' %}">계정생성</a></li>
+        <li><a href="{% url 'signup' %}">Create an account</a></li>
       </ul>
     </div>
   </section>

@@ -11,11 +11,12 @@
   <h1>My Blog</h1>
   {% if user.user.is_authenticated %}
   <p>Welcome {{user.nickname}}!</p>
-  <a href="{% url 'post' %}"><button>post</button></a>
-  <a href="{% url 'logout' %}"><button>sign-out</button></a>
+  <a href="{% url 'post' %}"><button>Post</button></a>
+  <a href="{% url 'logout' %}"><button>Sign-out</button></a>
+  <a href="{% url 'modify' %}"><button>Settings</button></a>
   {% else %}
-  <a href="{% url 'signup' %}"><button>sing-up</button></a>
-  <a href="{% url 'login' %}"><button>sign-in</button></a>
+  <a href="{% url 'signup' %}"><button>Sign-up</button></a>
+  <a href="{% url 'login' %}"><button>Sign-in</button></a>
   {% endif %}
 
   <br>

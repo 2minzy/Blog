@@ -28,6 +28,6 @@ urlpatterns = [
     path('signup/',signup,name='signup'),
     path('login/', login,name='login'),
     path('logout/',logout,name='logout'),
-    # path('modify/',modify_user,name='modify'),
+    path('modify/',modify_user,name='modify'),
     path('like/<int:post_id>', post_like,name='like'),
 ]

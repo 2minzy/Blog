@@ -92,15 +92,15 @@
 <body>
 
   <section class="login">
-    <h2>개인정보 수정</h2>
+    <h2>Account Settings</h2>
     <ul>
       <form method="POST" action="{% url 'signup' %}">
         {% csrf_token %}
-        <h5>{{account.username}}님의 정보</h5>
-        <li><input type="password" placeholder="새로운 비밀번호" name="password1"></li>
-        <li><input type="password" placeholder="비밀번호 확인" name="password2"></li>
-        <li><input type="email" placeholder="email" value='{{ account.email }}' name="email"></li>
-        <li><input type="text" placeholder="닉네임" value='{{ account.nickname }}' name="nickname"></li>
+        <h5>{{account.username}}</h5>
+        <li><input type="password" placeholder="Type new password" name="password1"></li>
+        <li><input type="password" placeholder="Type new password again" name="password2"></li>
+        <li><input type="email" placeholder="Email" value='{{ account.email }}' name="email"></li>
+        <li><input type="text" placeholder="Nickname" value='{{ account.nickname }}' name="nickname"></li>
         <div style=" margin: 0 0 0 30px; color: red;" class="messages">
           {% if messages %}
           {% for message in messages %}
@@ -108,10 +108,10 @@
           {% endfor %}
           {% endif %}
         </div>
-        <li><button type="submit">정보 수정</button></li>
+        <li><button type="submit">Submit</button></li>
       </form>
 
-      <h5 style="border-bottom:2px solid #111111;">{{account.user.username}}님의 좋아요 목록</h5>
+      <h5 style="border-bottom:2px solid #111111;">{{account.user.username}} The list what you liked</h5>
       {% for post in account.like_post.all %}
       <div style="border-bottom:2px solid #111111;">
         <li>{{post.title}}</li>
